@@ -1,4 +1,4 @@
-package com.example.movieapp.dto;
+package com.example.movieapp.dto.outgoing;
 
 import com.example.movieapp.domain.Movie;
 

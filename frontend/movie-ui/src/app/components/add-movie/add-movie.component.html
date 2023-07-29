@@ -1,38 +1,36 @@
 <h1>New Movie</h1>
 
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="mb-3">
     <label for="Title" class="form-label">Title</label>
-    <input type="text" class="form-control" id="Title" placeholder="Title">
+    <input type="text" class="form-control" id="Title" placeholder="Title" formControlName="title">
   </div>
 
   <div class="mb-3">
     <label for="Director" class="form-label">Director</label>
-    <input type="text" class="form-control" id="Director" placeholder="Director">
+    <input type="text" class="form-control" id="Director" placeholder="Director" formControlName="director">
   </div>
 
   <div class="mb-3">
     <label for="Year" class="form-label">Year</label>
-    <input type="number" class="form-control" id="Year" placeholder="Year">
+    <input type="number" class="form-control" id="Year" placeholder="Year" formControlName="year">
   </div>
 
   <div class="mb-3">
     <label for="genre">Genre</label>
-    <select id="genre" class="form-select" multiple aria-label="Genre">
-      <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+    <select id="genre" class="form-select" multiple aria-label="Genre" size="{{genres.length}}" formControlName="genres">
+      <option *ngFor="let genre of genres" value="{{genre.name}}">{{genre.displayName}}</option>
     </select>
   </div>
 
+
   <div class="mb-3">
     <label for="rating">Rating</label>
-    <div class="form-check" id="rating">
+    <div class="form-check" id="rating" *ngFor="let rating of ratings">
       <div class="mb-2">
-        <input class="form-check-input" type="radio" name="" id="r1">
-        <label class="form-check-label" for="r1">
-          Default radio
+        <input class="form-check-input" type="radio" name="" id="r1" formControlName="rating" value="{{rating.name}}">
+        <label class="form-check-label" for="r1" >
+          {{rating.description}}
         </label>
       </div>
     </div>
@@ -40,7 +38,7 @@
 
   <div class="mb-3">
     <label for="URL" class="form-label">Poster URL</label>
-    <input type="text" class="form-control" id="URL" placeholder="Poster URL">
+    <input type="text" class="form-control" id="URL" placeholder="Poster URL" formControlName="url">
   </div>
 
   <button type="submit" class="btn btn-success btn-primary">Submit</button>

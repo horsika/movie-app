@@ -9,8 +9,8 @@ import {MovieListItem} from "../../models/MovieListItem";
 export class MovieDetailsComponent {
   movie: MovieListItem = {
     id: 0,
-    title:"sdfgbh",
-    director: "sdfgbnbvcdrtghvc",
-    year: 2020
+    title:"Barbie",
+    director: "Greta Gerwig",
+    year: 2023
   }
 }
